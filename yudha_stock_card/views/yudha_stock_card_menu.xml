@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+                <menuitem id="menu_yudha_stock_main"
+                  parent="stock.menu_warehouse_report"
+                  sequence="150"
+                  name="Yudha Stock Card"/>
+               <menuitem id="menu_yudha_stock_card_summary"
+                  parent="menu_yudha_stock_main"
+                  sequence="151"
+                  name="Stock Card Summary"
+                  action="act_yudha_stock_card_summary_view"
+                  />
+        <menuitem id="menu_yudha_stock_card"
+                  parent="menu_yudha_stock_main"
+                  sequence="152"
+                  name="Stock Card Per Product"
+                  action="act_yudha_stock_card_view"
+                  />
+    </data>
+</odoo>

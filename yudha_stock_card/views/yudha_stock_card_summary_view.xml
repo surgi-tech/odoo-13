@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="act_yudha_stock_card_summary_view">
+            <field name="name">Stock Card Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">yudha.stock.summary</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <!--tree view-->
+        <record id="view_yudha_stock_card_summary_tree" model="ir.ui.view">
+            <field name="name">yudha.stock.card.summary.tree</field>
+            <field name="model">yudha.stock.summary</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Stock Card Summary" >
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="user_id"/>
+                    <field name="breakdown_sn"/>
+                    <field name="location_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form -->
+        <record id="view_yudha_stock_card_summary_form" model="ir.ui.view">
+            <field name="name">yudha.stock.card.summary.form</field>
+            <field name="model">yudha.stock.summary</field>
+            <field name="type">form</field>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+                <form string="Stock Card" >
+                    <header>
+                        <button name="action_draft" string="Set To Draft" type="object"/>
+                        <button name="action_confirm" string="Confirm" type="object"/>
+                        <button name="action_done" string="Validate" type="object"/>
+                        <button name="action_calculate" string="Calculated" type="object"/>
+
+                    </header>
+                    <sheet>
+                        <group string="" col="2">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="user_id"/>
+                            <field name="location_id"/>
+                            <field name="breakdown_sn"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+                         <notebook>
+                              <page string="Detail">
+                                  <field name="line_ids" widget="one2many_list">
+                                     <tree string="Detail Stock" create="false" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="stock_move_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True,'no_open':True}"/>
+                                        <field name="product_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True,'no_open':True}"/>
+                                        <field name="product_uom_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True,'no_open':True}"/>
+                                        <field name="lot_id"/>
+                                        <field name="expired_date" />
+                                        <field name="qty_start"/>
+                                        <field name="qty_in"/>
+                                        <field name="qty_out"/>
+                                        <field name="qty_balance"/>
+                                     </tree>
+                                  </field>
+                              </page>
+                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
