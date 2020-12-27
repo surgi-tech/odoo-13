@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+        <record id="group_request_quotation_user" model="res.groups">
+            <field name="name">Request For Quotation User</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="form_view_purchase_order_inherit" model="ir.ui.view">
+            <field name="name">name.purchase.order.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+<!--                <xpath expr="//button[@name='button_confirm']" position="replace">-->
+<!--                    <button name="button_confirm" type="object" states="draft" string="Confirm Order" id="draft_confirm"-->
+<!--                    groups="surgi_purchase_access.group_request_quotation_user"/>-->
+<!--                    <button name="button_confirm" type="object" states="sent" string="Confirm Order"-->
+<!--                            class="oe_highlight" id="bid_confirm" groups="surgi_purchase_access.group_request_quotation_user"/>-->
+
+<!--                </xpath>-->
+
+                <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                    <attribute name="groups">surgi_purchase_access.group_request_quotation_user</attribute>
+                </xpath>
+
+                <xpath expr="//button[@id='bid_confirm']" position="attributes">
+                    <attribute name="groups">surgi_purchase_access.group_request_quotation_user</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

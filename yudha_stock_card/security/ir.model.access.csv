@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+access_yudha_stock_card,yudha_stock_card,model_yudha_stock_card,base.group_user,1,1,1,1
+access_yudha_stock_card_line,yudha_stock_card_line,model_yudha_stock_card_line,base.group_user,1,1,1,1
+access_yudha_stock_summary,yudha_stock_summary,model_yudha_stock_summary,base.group_user,1,1,1,1
+access_yudha_stock_summary_line,yudha_stock_summary_line,model_yudha_stock_summary_line,base.group_user,1,1,1,1
